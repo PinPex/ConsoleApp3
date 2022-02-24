@@ -5,7 +5,7 @@ internal class RomanNumber : ICloneable, IComparable
     private string roman_str;
     public RomanNumber(int n)
     {
-        if (n < 1 && n > 3999)
+        if(n < 1 || n > 3999)
             throw new RomanNumberException("Uncorrectly number");
         num = n;
         roman_str = "";
@@ -46,7 +46,7 @@ internal class RomanNumber : ICloneable, IComparable
     }
     public static RomanNumber Sub(RomanNumber? n1, RomanNumber? n2)
     {
-        if (n1 is null || n2 is null || n1.num - n2.num <= 0)
+        if (n1 is null || n2 is null || n2.num - n1.num > 0)
             throw new RomanNumberException("Subtracting these numbers is impossible");
         else
             return new RomanNumber(n1.num - n2.num);
@@ -60,7 +60,7 @@ internal class RomanNumber : ICloneable, IComparable
     }
     public static RomanNumber Div(RomanNumber? n1, RomanNumber? n2)
     {
-        if (n1 is null || n2 is null || n1.num / n2.num <= 0)
+        if (n1 is null || n2 is null || n2.num / n1.num > 0)
             throw new RomanNumberException("Dividing these numbers");
         else
             return new RomanNumber(n1.num / n2.num);
