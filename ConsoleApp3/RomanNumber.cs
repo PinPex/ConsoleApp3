@@ -60,8 +60,8 @@ internal class RomanNumber : ICloneable, IComparable
     }
     public static RomanNumber Div(RomanNumber? n1, RomanNumber? n2)
     {
-        if (n1 is null || n2 is null || n2.num / n1.num > 0)
-            throw new RomanNumberException("Dividing these numbers");
+        if (n1 is null || n2 is null || n2.num / n1.num > 1)
+            throw new RomanNumberException("Dividing these numbers is impossible");
         else
             return new RomanNumber(n1.num / n2.num);
     }
